@@ -1,0 +1,56 @@
+** fill in the following;
+*** repeat it for each group member;
+*** list group members alphabetically by last name
+
+Name(last): Jayasankar
+Name(first): Dinesh
+Login_ID: djayasan
+
+*** Give the status of your work; here's a sample.
+
+Status:
+
+part1: Works on all tests.
+part2: Works on all tests.
+part3: Works on all tests.
+part4: Works on all tests.
+part5: Works on all tests.
+part6: Works on all tests.
+part7: Non-existant.
+
+Overall: Any comment/discussion related to this HW.
+
+- Java file SymbolTable.java provides scope analysis for Parser.java
+- Java file Generate.java provides print functions for code generation.
+- Java file SymbolTable.java, and Parser.java rely on List & Stacks and HashSet respectively.
+- Nested class VariableReference of SymbolTable keeps attributes and VarInfo nested inside it keeps track of use/assignment
+- SymbolsTable's 'checkProperUse' the validity of the variable and updates the use/assignment
+- I keep a separate list of all the variables in addition to the ones on the stack frame.
+
+
+QUESTION 1: 
+  The purpose of 'putback' is to prevent 'Token_scan()' grabbing an extra
+character in the stream. It is assgined 'true' when the scanner does not know
+the extact fixed amount of characters to get, for example, when 
+scanning an 'id', 'relop', or comment. It is initialized to 'false' at the start
+because 'getchar()' is called before 'Token_scan()' in 'main' Hence, when the 
+scanner has one more character than necessary, 'putback' prevents 
+a call to 'getchar()' in 'Token_scan()'.
+
+QUESTION 2:
+  The value of 'c' is '*' and 'putback' was assigned 'true'.
+
+QUESTION 3: 
+  The case statement checkes for nonterminals derived from 'relop', 'addop', 
+'multlop', 'guarded_commands', 'factor', and 'commands'. The code in in 
+consists of three functions 'ccase1', 'ccase1or2' and 'ccase2'. The 'ccase1'
+function accepts lone terminal, and returns the constructed Token object. 
+The 'ccase1or2' checks for the appropriate paring of terminals in 'relop', 
+whether the angle bracket is followed by an equal sign or not. Then, it
+returns the appropriate sequence of terminals. The 'ccase2' checks if the 
+terminal following the current char is identical to the current char. If so, 
+it also returns a newly constructed Token object. The Token object contains 
+the kind of token specified in the TK enum, the string sequence, and the linenumber
+it occurs on. Also, the case statement gobbles comments in the program, 
+which end with a newline character or EOF. 
+
